@@ -1,3 +1,4 @@
+from main import happi
 class Blobber:
     def __init__(self, name, color, radius, height):
         self.name = name
@@ -17,5 +18,8 @@ class Blobber:
     def changeColor(self):
         self.color = input("What is the new color of your blobber? ")
 
+    def blobberSpeak(self):
+        print("Hi my name is " + self.name + ", I am " + self.color + "." + "\nMy happiness level is " + happi + "%.")
 
+    
         
