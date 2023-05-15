@@ -8,13 +8,14 @@ ogCylVol = 3.14 * (radius ^ 2) * height
 currentVol = ogCylVol
 happi = currentVol / ogCylVol * 100
 killRate = (ogCylVol / 1000) * 2
-myBlobber = Blobber(name, color, radius, height)
+myBlobber = Blobber(name, color, radius, height, happi)
+death = False
 print(happi)
 
 finish = False
 
 while finish != True:
-    happi = currentVol / ogCylVol * 100
+    myBlobber.happi = currentVol / ogCylVol * 100
     print()
     print("Main Menu")
     print("\t(1) Display Name")
@@ -24,10 +25,13 @@ while finish != True:
     print("\t(5) Feed Blobber")
     print("\t(6) Blobber Speak")
     print("\t(7) Exit")
-    print("My vital level is " + str(round(float(happi), 4)) + "%")
+    print("My vital level is " + str(round(float(myBlobber.happi), 4)) + "%")
 
     response = int(input(" "))
     
+    if happi <= 90 or happi >= 110:
+        death = True
+
     if response == 1:
         myBlobber.displayName()
         currentVol = currentVol - killRate
@@ -44,12 +48,18 @@ while finish != True:
         myBlobber.changeColor()
         currentVol = currentVol - killRate
 
+    if response == 5:
+        myBlobber.feedMe(float(myBlobber.happi))
+        currentVol = currentVol - killRate
+
     if response == 6:
-        myBlobber.blobberSpeak()
+        myBlobber.blobberSpeak(str(myBlobber.happi))
         currentVol = currentVol - killRate
 
     if response == 7:
         finish = True
 
-    
+    if death == True:
+        print("That boi dead.")
+        finish = True
     
