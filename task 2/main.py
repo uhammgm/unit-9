@@ -54,7 +54,7 @@ while finish != True:
 
     if response == 6:
         myBlobber.blobberSpeak(str(myBlobber.happi))
-        currentVol = currentVol - killRate
+        currentVol = currentVol - killRate * (time.time() - myBlobber.birthTime) 
 
     if response == 7:
         finish = True

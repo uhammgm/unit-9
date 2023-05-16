@@ -1,5 +1,5 @@
 
-
+import time
 class Blobber:
 
     
@@ -10,6 +10,7 @@ class Blobber:
         self.radius = radius
         self.height = height
         self.happi = happi
+        self.birthTime = time.time()
 
     def displayName(self):
         print(self.name)
@@ -30,5 +31,6 @@ class Blobber:
         food = input("How much food do you want to feed me? ")
         happi = float(happi) + float(food)
 
-    
+    #def updateHappi():
+
         
