@@ -6,6 +6,7 @@ drawer = features()
 drawer.drawHead()
 drawer.drawEyes()
 drawer.drawSmile()
+turtle.hideturtle()
 
 mouthStat = 1
 headStat = 1
@@ -21,17 +22,23 @@ while finish != True:
     choice = int(input("Choice: "))
     
     if choice == 1:
-        if headStat == 1:
+        if HapMad == "3.Make me happy":
             drawer.drawHead()
-        elif headStat == 2:
+        elif HapMad == "3.Make me mad":
             drawer.drawHeadMad()
         if eyesStat == 1:
             drawer.drawEyes()
         elif eyesStat == 2:
             drawer.drawEyesBlue()
-        drawer.drawSad()
-        mouthStat = 2
-        FroSmi = "1.Make me smile"
+        if FroSmi == "1.Make me sad":
+            drawer.drawSad()
+            FroSmi = "1.Make me smile"
+            mouthStat = 1
+        elif FroSmi == "1.Make me smile":
+            drawer.drawSmile()
+            FroSmi = "1.Make me sad"
+            mouthStat = 2
+        
         
 
     if choice == 2:
@@ -40,15 +47,18 @@ while finish != True:
             drawer.drawHead()
         elif headStat == 2:
             drawer.drawHeadMad()
-        if eyesStat == 1:
-            drawer.drawEyes()
-        elif eyesStat == 2:
-            drawer.drawEyesBlue()
         if mouthStat == 1:
             drawer.drawSmile()
         elif mouthStat == 2:
             drawer.drawSad()
-        EyeBlue = "2.Make my eyes black"
+        if EyeBlue == "2.Make my eyes black":
+            drawer.drawEyes()
+            EyeBlue = "2.Make my eyes blue"
+        elif EyeBlue == "2.Make my eyes blue":
+            drawer.drawEyesBlue()
+            EyeBlue = "2.Make my eyes black"
+        
+        
 
     if choice == 3:
         drawer.drawHeadMad()
@@ -60,8 +70,13 @@ while finish != True:
             drawer.drawSmile()
         elif mouthStat == 2:
             drawer.drawSad()
-        headStat = 2
-        HapMad = "3.Make me happy"
+        if HapMad == "3.Make me mad":
+            drawer.drawHeadMad()
+            HapMad = "3.Make me happy"
+        elif HapMad == "3.Make me mad":
+            drawer.drawHead()
+            HapMad == "3.Make me mad"
+
 
     if choice == 4:
         finish = True
